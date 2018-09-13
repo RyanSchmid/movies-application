@@ -3,15 +3,92 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap CSS below -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- JQUERY below -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
 
     <div class="container">
-        <h1>Hello There!</h1>
+        <h1 id="welcome">Hello There!</h1>
         <p>To get started, edit <code>src/index.js</code>.</p>
     </div>
 
+
+    <!-- MOVIE LIST -->
+    <div id="movieList">
+        <h1 class="jumbotron text-center">Movies!</h1>
+    </div>
+
+
+    <!--MOVIE INPUT FORM -->
+    <form>
+        <table class="table" id="products">
+            <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Edit</th>
+            </tr>
+            </thead>
+            <tbody id="insertProducts"></tbody>
+        </table>
+    </form>
+
     <script src="/main.js"></script>
+
+
+
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--BOOSTRAP POPOVER from GitHub-->
+<!--<div class="container">-->
+    <!--<h1 class="text-center">Bootstrap 4!</h1>-->
+    <!--<div class="row my-5">-->
+        <!--<div class="col-sm-6 offset-sm-3">-->
+            <!--<button type="button"-->
+                    <!--class="btn btn-lg btn-primary btn-block"-->
+                    <!--data-toggle="popover"-->
+                    <!--title="Popover title"-->
+                    <!--data-content="And here's some amazing content. It's very engaging. Right?">-->
+                <!--Here's a Bootstrap Popover-->
+            <!--</button>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--END OF POPOVER -->
+
+
+
+
+
+
 </html>
