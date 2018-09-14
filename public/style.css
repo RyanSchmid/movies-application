@@ -4,12 +4,10 @@
     /*color: white;*/
 /*}*/
 
-/*.container {*/
-    /*position: relative;*/
-    /*top: 50%;*/
-    /*transform: translateY(-100%);*/
-    /*text-align: center;*/
-/*}*/
+.container {
+    height: 100%;
+    text-align: center;
+}
 
 * {
     background-color: gray;
@@ -22,5 +20,6 @@ h1, th {
 }
 
 .jumbotron {
-    background-color: gray;
+    background-color: black;
+    color: white;
 }
