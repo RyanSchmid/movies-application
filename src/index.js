@@ -26,6 +26,8 @@ function renderMovies(movies) {
     return newHtml;
 }
 
+
+
 // ###### DELETE MOVIES ##### //
 // function deleteMovies(item) {
 //     return fetch ('/api/movies' + '/' + item, {
@@ -40,24 +42,65 @@ function renderMovies(movies) {
 
 // const form = document.getElementById('addMovieForm');
 // form.addEventListener('submit', addMovie);
-//
-// function addMovie() {
-//     event.preventDefault();
-//     let inputTitle = $('#inputTitle').val();
-//     let inputRating = $('#inputRating').val();
-//     let inputId =
-//     let addedMovie = {}
-//     addedMovie= {'title': `${inputTitle}`, 'rating': `${inputRating}`, 'id': `${inputId}`})
-//
-//     $.post('/api/movies')
-//
-//         .then($('#insertMovies').html(renderMovies(movies)))
-//     };
 
+// const url = '/api/movies'
+// let inputTitle = $("#inputTitle").val()
+// let inputRating = $("#inputRating").val()
+// let inputId = 6
+// let addedMovie = {'title': `${inputTitle}`, 'rating': `${inputRating}`, 'id': `${inputId}`};
+
+
+const addMovie = {
+    function() {
+        event.preventDefault();
+        $.ajax({
+            url: '/api/movies',
+            type: "POST",
+            data: {
+                "title": $("#inputTitle").val(),
+                "rating": $("#inputRating").val()
+            }
+        })
+            .then($('#welcome').text("Loading..."))
+            .done(function (data, status, jqXhr) {
+                console.log(data);
+                $('#welcome').text("Movie Time!")
+                $('#insertMovies').html(renderMovies(data));
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            });
+
+    }
+};
+
+// document.getElementById('addMovie').addEventListener("click", addMovie);
+
+
+
+
+
+
+// fetch(url, )
+//     .then(movies => {return movies.json()})
+//     .then(res => {console.log(res)}
+//     .catch(error => {console.log(error)}
+
+
+
+//     $.ajax({
+//         url: "/users",
+//         type: "POST",
+//         data: {
+//             title:  $('#inputTitle').val(),
+//             rating: $('#inputRating').val()
+//     }
+// }).done(function(data) {
+//     // do something with the data
+// });
 
 
 // // ###### DOM EVENT TRIGGERS ##### //
-// document.getElementById('addMovie').addEventListener("click", addMovie());
 // document.getElementById('deleteMovie').addEventListener("click", deleteMovies());
 
 
