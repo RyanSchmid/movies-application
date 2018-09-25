@@ -27,29 +27,29 @@ function renderMovies(movies) {
 }
 
 
-
 // ###### DELETE MOVIES ##### //
-// function deleteMovies(item) {
-//     return fetch ('/api/movies' + '/' + item, {
-//         method: 'delete'
-//     })
-//         .then(response => $('#insertMovies').html(renderMovies(response.json())))
-// }
+const deleteMovie = {
+    function() {
+        event.preventDefault();
+        $.ajax({
+            url: '/api/movies',
+            type: "DELETE"
+        })
+            .then($('#welcome').text("Loading..."))
+            .done(function (data, status, jqXhr) {
+                console.log(data);
+                $('#welcome').text("Movie Time!")
+                $('#insertMovies').html(renderMovies(data));
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            });
 
+    }
+};
 
 
 // ###### ADD MOVIES ##### //
-
-// const form = document.getElementById('addMovieForm');
-// form.addEventListener('submit', addMovie);
-
-// const url = '/api/movies'
-// let inputTitle = $("#inputTitle").val()
-// let inputRating = $("#inputRating").val()
-// let inputId = 6
-// let addedMovie = {'title': `${inputTitle}`, 'rating': `${inputRating}`, 'id': `${inputId}`};
-
-
 const addMovie = {
     function() {
         event.preventDefault();
@@ -74,7 +74,72 @@ const addMovie = {
     }
 };
 
-// document.getElementById('addMovie').addEventListener("click", addMovie);
+// ###### EDIT MOVIES ##### //
+const editMovie = {
+    function() {
+        event.preventDefault();
+        $.ajax({
+            url: '/api/movies',
+            type: "PUT",
+            data: {
+                "title": $("#inputTitle").val(),
+                "rating": $("#inputRating").val()
+            }
+        })
+            .then($('#welcome').text("Loading..."))
+            .done(function (data, status, jqXhr) {
+                console.log(data);
+                $('#welcome').text("Movie Time!")
+                $('#insertMovies').html(renderMovies(data));
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            });
+
+    }
+};
+
+
+
+
+
+// const form = document.getElementById('addMovieForm');
+// form.addEventListener('submit', addMovie);
+
+// const url = '/api/movies'
+// let inputTitle = $("#inputTitle").val()
+// let inputRating = $("#inputRating").val()
+// let inputId = 6
+// let addedMovie = {'title': `${inputTitle}`, 'rating': `${inputRating}`, 'id': `${inputId}`};
+
+
+
+document.getElementById('addMovie').addEventListener("click", addMovie);
+document.getElementById('deleteMovie').addEventListener("click", deleteMovie);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
